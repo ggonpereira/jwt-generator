@@ -1,7 +1,7 @@
 const ONE_DAY = 24 * 60 * 60 * 1000;
 const BASE_UNITS: Record<string, number> = { d: 1, w: 7, m: 30, y: 365 };
 
-export function generateExpTime(unit: string) {
+export function generateExpTime(unit: string | number) {
   if (typeof unit === "string") {
     const match = unit.match(/^(\d+)([dwmy])$/);
 
