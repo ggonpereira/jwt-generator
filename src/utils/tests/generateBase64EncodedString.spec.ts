@@ -32,11 +32,11 @@ describe("genBase64UrlStringFromObject", () => {
     expect(result).toEqual(expected);
   });
 
-  it("should handle non-serializable input returning null", () => {
+  it("should handle non-serializable input returning an empty string", () => {
     const input: any = { circularReference: {} };
     input.circularReference.circularReference = input;
     const result = genBase64UrlStringFromObject(input);
 
-    expect(result).toBeNull();
+    expect(result).toEqual("");
   });
 });
