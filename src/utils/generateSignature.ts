@@ -11,7 +11,13 @@ export function generateSignature({
   payload,
   secret,
 }: IGenerateSignature) {
-  const hmac = createHmac("sha256", secret);
+  if (!secret || !header || !payload) return null;
 
-  return hmac.update(`${header}.${payload}`).digest("base64url");
+  try {
+    const hmac = createHmac("sha256", secret);
+
+    return hmac.update(`${header}.${payload}`).digest("base64url");
+  } catch {
+    return null;
+  }
 }
