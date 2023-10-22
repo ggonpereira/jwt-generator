@@ -4,11 +4,16 @@ import { generateSignature } from "../utils/generateSignature";
 
 interface ISignOptions {
   data: Record<string, any>;
-  exp: string;
+  exp: string | number;
   secret: string;
 }
 
 export function sign({ data, exp, secret }: ISignOptions) {
+  if (!data || !exp || !secret)
+    throw new Error(
+      "You must insert a valid data, expiration date and secret key."
+    );
+
   const currentDate = Date.now();
 
   const header = {
