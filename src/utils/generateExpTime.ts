@@ -3,7 +3,7 @@ const BASE_UNITS: Record<string, number> = { d: 1, w: 7, m: 30, y: 365 };
 
 export function generateExpTime(unit: string) {
   if (typeof unit === "string") {
-    const match = unit.match(/^(\d+)([dmy])$/);
+    const match = unit.match(/^(\d+)([dwmy])$/);
 
     if (!match) return ONE_DAY;
 
