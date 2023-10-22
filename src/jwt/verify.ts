@@ -12,6 +12,9 @@ interface IDecodedPayload {
 }
 
 export function verify({ token, secret }: IVerifyOptions) {
+  if (!token || !secret)
+    throw new Error("You must insert a value for token and secret.");
+
   const [headerReceived, payloadReceived, signatureReceived] = token.split(".");
 
   const calculatedSignature = generateSignature({
