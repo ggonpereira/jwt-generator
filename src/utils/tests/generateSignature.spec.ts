@@ -1,5 +1,5 @@
 import { createHmac } from "node:crypto";
-import { generateSignature } from "./generateSignature";
+import { generateSignature } from "../generateSignature";
 
 describe("generateSignature", () => {
   it("should generate a valid signature with the correct secret", () => {

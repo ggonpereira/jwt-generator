@@ -1,4 +1,4 @@
-import { genBase64UrlStringFromObject } from "./generateBase64EncodedString";
+import { genBase64UrlStringFromObject } from "../generateBase64EncodedString";
 
 describe("genBase64UrlStringFromObject", () => {
   it("should encode an empty object to a base64url string", () => {

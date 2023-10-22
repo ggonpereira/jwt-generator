@@ -1,4 +1,4 @@
-import { generateExpTime } from "./generateExpTime";
+import { generateExpTime } from "../generateExpTime";
 
 describe("generateExpTime", () => {
   describe("using string units", () => {
