@@ -29,6 +29,15 @@ describe("generateExpTime", () => {
 
         expect(result).toEqual(expected);
       });
+
+      it('should return zero timestamp based on "0d" input', () => {
+        const input = "0d";
+        const expected = 0;
+
+        const result = generateExpTime(input);
+
+        expect(result).toEqual(expected);
+      });
     });
 
     describe("week string unit", () => {
@@ -53,6 +62,15 @@ describe("generateExpTime", () => {
       it('should return twelve weeks timestamp based on "12w" input', () => {
         const input = "12w";
         const expected = 7_257_600_000;
+
+        const result = generateExpTime(input);
+
+        expect(result).toEqual(expected);
+      });
+
+      it('should return zero timestamp based on "0w" input', () => {
+        const input = "0w";
+        const expected = 0;
 
         const result = generateExpTime(input);
 
@@ -87,6 +105,15 @@ describe("generateExpTime", () => {
 
         expect(result).toEqual(expected);
       });
+
+      it('should return zero timestamp based on "0m" input', () => {
+        const input = "0m";
+        const expected = 0;
+
+        const result = generateExpTime(input);
+
+        expect(result).toEqual(expected);
+      });
     });
 
     describe("year string unit", () => {
@@ -116,12 +143,66 @@ describe("generateExpTime", () => {
 
         expect(result).toEqual(expected);
       });
+
+      it('should return zero timestamp based on "0y" input', () => {
+        const input = "0y";
+        const expected = 0;
+
+        const result = generateExpTime(input);
+
+        expect(result).toEqual(expected);
+      });
+    });
+
+    it('should return one day timestamp based on "0d0w0m0y" input', () => {
+      const input = "0d0w0m0y";
+      const expected = 86_400_000;
+
+      const result = generateExpTime(input);
+
+      expect(result).toEqual(expected);
     });
   });
 
   describe("using number units", () => {
     it("should return one day timestamp based on 1 input", () => {
       const input = 1;
+      const expected = 86_400_000;
+
+      const result = generateExpTime(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it('should return one day timestamp based on "123" input', () => {
+      const input = "123";
+      const expected = 86_400_000;
+
+      const result = generateExpTime(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return one day timestamp on empty string input", () => {
+      const input = "";
+      const expected = 86_400_000;
+
+      const result = generateExpTime(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return one day timestamp on null input", () => {
+      const input = null;
+      const expected = 86_400_000;
+
+      const result = generateExpTime(input as any);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return one day timestamp on negative numeric input", () => {
+      const input = -10;
       const expected = 86_400_000;
 
       const result = generateExpTime(input);

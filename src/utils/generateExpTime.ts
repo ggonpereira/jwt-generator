@@ -17,6 +17,8 @@ export function generateExpTime(unit: string | number) {
   }
 
   if (typeof unit === "number") {
+    if (unit < 0) return ONE_DAY;
+
     return ONE_DAY * unit;
   }
 
