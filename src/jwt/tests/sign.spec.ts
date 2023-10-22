@@ -1,4 +1,4 @@
-import { sign } from "./sign";
+import { sign } from "../sign";
 
 describe("sign", () => {
   it("should generate a valid JWT token with the correct data and signature", () => {
